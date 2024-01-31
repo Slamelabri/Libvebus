@@ -35,8 +35,6 @@
   ```
  import { Server } from "socket.io";
   ```
-Or
-
   ```
 const { Server } = require("socket.io");
   ```
