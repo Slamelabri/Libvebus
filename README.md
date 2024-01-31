@@ -1,5 +1,7 @@
 # LiveBus
 
+## [PowerPoint Presentation Link](https://docs.google.com/presentation/d/11bYyfLrmNvgShFfJFx8oGV6T18maJpPoou6bMGi4znk/edit#slide=id.gb47398cd52_0_48)
+
 ## Prérequis
 
 - [Node JS](https://nodejs.org/en)
