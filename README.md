@@ -31,11 +31,11 @@
   
   #### Socket IO
   ```
- import { Server } from "socket.io";
+   import { Server } from "socket.io";
   ```
   #### Or
   ```
-const { Server } = require("socket.io");
+  const { Server } = require("socket.io");
   ```
 
   #### Git
