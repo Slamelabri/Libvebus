@@ -18,28 +18,27 @@
   ### Installation des prérequis
 
   #### express
-
   ```
    npm install express --save
   ```
+  
 
   #### body-parser
-
   ```
   $ npm install body-parser
   ```
-  Doit être égal ou supérieur à PHP 8.1
-
+  
+  
   #### Socket IO
-
   ```
  import { Server } from "socket.io";
   ```
+  #### Or
   ```
 const { Server } = require("socket.io");
   ```
-  #### Git
 
+  #### Git
   ```
   git -v
   ```
