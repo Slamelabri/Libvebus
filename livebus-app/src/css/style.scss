@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$color-prm: #E20613;
+$color-prm-dark: #b7020d;
+$color-black: black;
+
+$font-default: "Montserrat";
+
+body{
+  margin: 0;
+  font-family: $font-default;
+  color: black;
+  margin-top: 130px;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background-color: $color-prm;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1000;
+
+  .logotype{
+    filter: drop-shadow(0px 10px 25px rgba($color-black, 0.1));
+    div{
+      background-color: white;
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+      width: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      img{
+        height: 100px;
+      }
+    }
+  }
+
+  .date_heure{
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 24px;
+    #date{
+      font-size: 24px;
+      font-weight: 300;
+      margin: 0;
+    }
+    #heure{
+      font-size: 64px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+/*begin::space*/
+.space-2{height: 2rem;}
+.space-4{height: 4rem;}
+.space-6{height: 6rem;}
+.space-8{height: 8rem;}
+/*end::space*/
+
+/*begin::form*/
+.form-container > .form-group:not(:last-child){
+  margin-bottom: 24px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: row;
+  & > div:not(:first-child){
+    margin-left: 8px;
+  }
+}
+
+.form-label{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  margin-bottom: 8px;
+  min-height: 28px;
+  line-height: 1.35em;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3a3636;
+}
+
+.form-control{
+  color: #58585a;
+  font-family: "Roboto","Open Sans",sans-serif;
+  font-weight: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 5px;
+  border: 2px solid #e3e4e4;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  transition: border-color .2s;
+
+  & > input, & > select, & > textarea{
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    font: inherit;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    color: #3a3636;
+    font-weight: 500;
+    border: none;
+    padding: 12px 15px;
+    background: none;
+    line-height: 23px;
+  }
+  & > textarea{font-size: 16px;}
+}
+
+/*begin::select perso*/
+select.form-control{display: none;}
+.select-perso{
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  span{
+    padding: 0px 16px;
+  }
+  .select-perso-options{
+    position: absolute;
+    z-index: 100;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 10px 25px 0px rgba($color: black, $alpha: 0.05);
+    display: flex;
+    flex-direction: column;
+    a{
+      padding: 12px 24px;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      transition: all .25s ease;
+      &.select-perso-option-active{
+        background-color: $color-prm;
+        color: white;
+      }
+      &:not(.select-perso-option-active):hover{
+        background-color: $color-prm-dark;
+        color: white;
+      }
+      &:active,&:focus,&:target{
+        color: white;
+        background-color: $color-prm-dark;
+      }
+    }
+    &:not(.show-options){
+      display: none;
+    }
+  }
+  &::before{
+    content:"";
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    background-image: url('/public/media/icone/fleches/level-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+/*end::select perso*/
+button, .btn-red{
+  -webkit-box-direction: normal;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border: none;
+  font-family: $font-default;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 600;
+  line-height: 27px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 9px 34px;
+  display: block;
+  background-color: #e2001a;
+  transition: all .25s ease;
+  text-decoration: none;
+  &:hover{opacity: .8;}
+}
+/*end::form*/
+
+#meteo, #meteo > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#meteo > div{
+  padding: 24px;
+  img.illustration{
+    height: 100px;
+    margin-right: 24px;
+  }
+  h2{font-size: 16px;margin: 0;}
+  p{
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+section#arret_container #arret{
+  font-size: 68px;
+  font-weight: bold;
+  text-align: center;
+  padding: 24px;
+}
+
+#lignes_horaires{
+  .ligne{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px;
+
+    &.hide{display: none;}
+
+    & > div:first-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      & > div:first-child img{height: 80px;}
+      & > div:nth-child(2){
+        margin-left: 24px;
+        h2{
+          font-size: 2.5rem;
+          font-weight: 600;
+          margin: 0;
+        }
+        p{
+          font-size: 1.5rem;
+          font-weight: normal;
+          margin: 0;
+        }
+      }
+    }
+
+    & > div:last-child p{
+      font-size: 48px;
+      color: white;
+      font-weight: bold;
+      background-color: $color-black;
+      padding: 12px;
+      min-width: 72px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+/*begin::bus a l'approche*/
+.bus_approche_animation, #bus_approche_annonce, #incident
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 130px);
+  text-align: center;
+  h2{
+    animation: clignoter 1s infinite;
+    text-transform: uppercase;
+  }
+  .gif_animation{height: 350px;}
+  &:not(.diapo-active){
+    display: none;
+  }
+}
+
+#bus_approche_annonce, #incident{
+  .ligne_icon{
+    height: 100px;
+  }
+  h2{
+    font-size: 68px;
+    font-weight: bold;
+    margin: 20px;
+  }
+  p{
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+}
+
+.bus_approche_animation{
+  .ligne_icon{
+    height: 65px;
+  }
+  h2{font-size: 18px;}
+}
+
+/*end::bus à l'approche*/
+
+/*begin::panel*/
+#panel{
+  height: calc(100vh - 130px);
+
+  #arret_container{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #lignes_horaires{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
+  }
+}
+/*end::panel*/
+
+/*begin::incident*/
+#incident{
+  .panneau{
+    height: 150px;
+    margin-bottom: 24px;
+  }
+}
+/*end::incident*/
+
+/*begin::annonce*/
+.annonce{
+  height: calc(100vh - 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .panneau{
+    height: 20vh;
+  }
+
+  h2{
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  p{
+    font-size: 1.5rem;
+  }
+}
+/*end::annonce*/
+
+/*begin::section*/
+.section-container{
+  padding: 32px;
+}
+/*end::section*/
+
+/*begin::screens list*/
+.screens_list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.screen{
+  position: relative;
+  text-align: center;
+  margin: 32px;
+  img{
+    height: 100px;
+  }
+  .station_code{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .station_nom{
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 0;
+  }
+  .screen_page{
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .screen_ip{
+    font-size: 12px;
+  }
+}
+/*end::screens list*/
+
+/*begin::animation*/
+@keyframes clignoter {
+  0%,100%{opacity: 1;}
+  50%{opacity: 0;}
+}
+/*end::animation*/
+
+aside{
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 8px 0;
+  box-shadow: 0px 0px 25px 1px rgba($color-black, 0.1);
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:10px;
+  background-color: $color-prm;
+}

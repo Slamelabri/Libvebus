@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ce bus ne prend pas de voyageurs - TCL</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+<header>
+  <div class="logotype">
+    <div>
+      <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+    </div>
+  </div>
+  <div class="date_heure">
+    <p id="date">Mardi 14/03/2023</p>
+    <p id="heure">12:12</p>
+  </div>
+</header>
+<main>
+  <section class="annonce">
+    <div>
+      <img src="/public/media/icone/panneaux/card-abo.png" alt="validation" class="panneau">
+    </div>
+    <div>
+      <h2>Validation obligatoire</h2>
+      <p>Nous vous rappelons que pour être en règle, votre ticket ou votre abonnement doit être validée à chaque correspondance.</p>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+<script>
+  socket.on('actualisescreen', function(message){window.location.reload();})
+
+  const annonceClass = new annonce();
+
+  setTimeout(()=>{window.location.href='/'},annonceClass.validation()+5000);
+</script>
+</body>
+</html>

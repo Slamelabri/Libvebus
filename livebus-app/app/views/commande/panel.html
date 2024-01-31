@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TCL</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+<header>
+  <div class="logotype">
+    <div>
+      <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+    </div>
+  </div>
+  <div class="date_heure">
+    <p id="date">Mardi 14/03/2023</p>
+    <p id="heure">12:12</p>
+  </div>
+</header>
+<main>
+  <section class="section-container">
+    <h2>Déclencher annonce incident</h2>
+    <div class="form-container">
+        <div class="form-group">
+          <div>
+            <label for="ligne_incident" class="form-label">Ligne impactée</label>
+            <div class="form-control">
+              <select name="ligne_incident" id="ligne_incident" class="form-control">
+                <option value="/public/media/lignes/bus/5.svg">BUS 5</option>
+                <option value="/public/media/lignes/bus/86.svg">BUS 86</option>
+                <option value="/public/media/lignes/metro/B.svg">METRO B</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      <div class="form-group">
+        <div>
+          <label for="titre_incident" class="form-label">Titre</label>
+          <div class="form-control">
+            <input type="text" name="titre_incident" id="titre_incident" placeholder="Titre">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label for="message_incident">Message</label>
+          <div class="form-control">
+            <textarea name="message_incident" id="message_incident" cols="26" rows="8" maxlength="300"></textarea>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button data-action="send_incident">Envoyer</button>
+      </div>
+    </div>
+  </section>
+  <section class="section-container">
+    <div>
+      <h2>Gestion des écrans</h2>
+    </div>
+    <div class="screens_list">
+    </div>
+    <div>
+      <p>Actualiser les écrans</p>
+      <div>
+        <button data-action="reload_screen">Actualiser les écrans</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+<script src="/src/js/elements.js"></script>
+<script src="/src/js/admin.js"></script>
+</body>
+</html>

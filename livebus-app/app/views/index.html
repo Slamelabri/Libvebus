@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCL</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logotype">
+            <div>
+                <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+            </div>
+        </div>
+        <div class="date_heure">
+            <p id="date">Mardi 14/03/2023</p>
+            <p id="heure">12:12</p>
+        </div>
+    </header>
+    <main id="panel">
+<!--        <section id="meteo">-->
+<!--            <div>-->
+<!--                <div>-->
+<!--                    <img class="illustration" src="/public/media/meteo/pluie-abondante.png" alt="pluie">-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <h2>Météo du jour</h2>-->
+<!--                    <p>PLUIE</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+        <section id="arret_container">
+            <div>
+                <h1 id="arret">Campus Région du Numérique</h1>
+            </div>
+        </section>
+        <section id="lignes_horaires">
+        </section>
+    </main>
+
+    <aside>
+        <marquee>
+
+        </marquee>
+    </aside>
+
+    <footer>
+
+    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/src/js/script.js"></script>
+    <script>
+        socket.on('incident', function(message){
+            setCookie("incident", JSON.stringify(message));
+            window.location.href = '/p/incident';
+        })
+        socket.on('actualisescreen', function(message){window.location.reload();})
+        if(!getCookie("config_station_nom"))
+            window.location.href = "/config";
+        else
+            document.querySelector("#arret").textContent = getCookie("config_station_nom");
+        const panelClass = new panel();
+        const datastation = panelClass.getDataStation();
+        datastation.lignes.forEach((ligne)=>{
+            panelClass.create_line(ligne)
+        })
+        panelClass.bandeau_defilant();
+
+        function defilement_lignes(){
+            const container_dim = document.getElementById("lignes_horaires").getBoundingClientRect();
+            const ligne_dim = document.querySelector(".ligne").getBoundingClientRect();
+            const lignes = document.querySelectorAll('.ligne');
+            const nb_lignes = lignes.length;
+            if(nb_lignes * ligne_dim.height > container_dim.height) {
+                const nb_lignes_max = Math.trunc(container_dim.height / ligne_dim.height);
+                var i = 1;
+                lignes.forEach((ligne)=>{
+                    if(i>nb_lignes_max)
+                        ligne.classList.add('hide');
+                    i++;
+                })
+
+                var j = 1;
+                function changeLigne(){
+                    var i = 0;
+                    lignes.forEach((ligne)=>{
+                        if((nb_lignes_max * j - nb_lignes_max)<0)
+                            var min = 0;
+                        else
+                            var min = nb_lignes_max * j - nb_lignes_max;
+                        if (i >= min && i < nb_lignes_max * j)
+                            ligne.classList.remove('hide');
+                        else
+                            ligne.classList.add('hide');
+                        i++;
+                    })
+                    if((j*nb_lignes_max)>=nb_lignes)
+                        j=1;
+                    else
+                        j++;
+                }
+                setInterval(changeLigne, 5000);
+            }
+        }
+        defilement_lignes();
+    </script>
+</body>
+</html>

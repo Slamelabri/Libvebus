@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TCL</title>
+</head>
+<link rel="stylesheet" href="/src/css/style.css">
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logotype{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+  img{
+    height: 15vh;
+    text-align: center;
+  }
+  h1,h2,p{
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+  h1,h2{
+    text-transform: uppercase;
+  }
+  h1{
+    font-size: 12vh;
+    font-weight: 200;
+  }
+  h2{
+    font-width: 100;
+  }
+  p{
+    margin-top: 2rem;
+  }
+</style>
+<body>
+
+<div>
+  <div class="logotype">
+    <img src="/public/media/logo/tcl-sytral-white.svg" alt="logo tcl sytral">
+  </div>
+  <div class="date_heure">
+    <h1 id="heure">écran en maintenance</h1>
+    <h2>Veuillez nous excusez pour la gêne occasionner.</h2>
+    <p>Horaires et Info traffic sur <b>www.tcl.fr</b></p>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+
+</body>
+</html>

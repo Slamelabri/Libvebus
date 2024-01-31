@@ -1,0 +1,459 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  margin: 0;
+  font-family: "Montserrat";
+  color: black;
+  margin-top: 130px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background-color: #E20613;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1000;
+}
+header .logotype {
+  filter: drop-shadow(0px 10px 25px rgba(0, 0, 0, 0.1));
+}
+header .logotype div {
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+header .logotype div img {
+  height: 100px;
+}
+header .date_heure {
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 24px;
+}
+header .date_heure #date {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+}
+header .date_heure #heure {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/*begin::space*/
+.space-2 {
+  height: 2rem;
+}
+
+.space-4 {
+  height: 4rem;
+}
+
+.space-6 {
+  height: 6rem;
+}
+
+.space-8 {
+  height: 8rem;
+}
+
+/*end::space*/
+/*begin::form*/
+.form-container > .form-group:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
+.form-group > div:not(:first-child) {
+  margin-left: 8px;
+}
+
+.form-label {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  margin-bottom: 8px;
+  min-height: 28px;
+  line-height: 1.35em;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3a3636;
+}
+
+.form-control {
+  color: #58585a;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-weight: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 5px;
+  border: 2px solid #e3e4e4;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s;
+}
+.form-control > input, .form-control > select, .form-control > textarea {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  font: inherit;
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  color: #3a3636;
+  font-weight: 500;
+  border: none;
+  padding: 12px 15px;
+  background: none;
+  line-height: 23px;
+}
+.form-control > textarea {
+  font-size: 16px;
+}
+
+/*begin::select perso*/
+select.form-control {
+  display: none;
+}
+
+.select-perso {
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+.select-perso span {
+  padding: 0px 16px;
+}
+.select-perso .select-perso-options {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+.select-perso .select-perso-options a {
+  padding: 12px 24px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.select-perso .select-perso-options a.select-perso-option-active {
+  background-color: #E20613;
+  color: white;
+}
+.select-perso .select-perso-options a:not(.select-perso-option-active):hover {
+  background-color: #b7020d;
+  color: white;
+}
+.select-perso .select-perso-options a:active, .select-perso .select-perso-options a:focus, .select-perso .select-perso-options a:target {
+  color: white;
+  background-color: #b7020d;
+}
+.select-perso .select-perso-options:not(.show-options) {
+  display: none;
+}
+.select-perso::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background-image: url("/public/media/icone/fleches/level-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*end::select perso*/
+button, .btn-red {
+  -webkit-box-direction: normal;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border: none;
+  font-family: "Montserrat";
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 600;
+  line-height: 27px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 9px 34px;
+  display: block;
+  background-color: #e2001a;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+button:hover, .btn-red:hover {
+  opacity: 0.8;
+}
+
+/*end::form*/
+#meteo, #meteo > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#meteo > div {
+  padding: 24px;
+}
+#meteo > div img.illustration {
+  height: 100px;
+  margin-right: 24px;
+}
+#meteo > div h2 {
+  font-size: 16px;
+  margin: 0;
+}
+#meteo > div p {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+section#arret_container #arret {
+  font-size: 68px;
+  font-weight: bold;
+  text-align: center;
+  padding: 24px;
+}
+
+#lignes_horaires .ligne {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 32px;
+}
+#lignes_horaires .ligne.hide {
+  display: none;
+}
+#lignes_horaires .ligne > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#lignes_horaires .ligne > div:first-child > div:first-child img {
+  height: 80px;
+}
+#lignes_horaires .ligne > div:first-child > div:nth-child(2) {
+  margin-left: 24px;
+}
+#lignes_horaires .ligne > div:first-child > div:nth-child(2) h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+#lignes_horaires .ligne > div:first-child > div:nth-child(2) p {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+#lignes_horaires .ligne > div:last-child p {
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+  padding: 12px;
+  min-width: 72px;
+  text-align: center;
+  margin: 0;
+}
+
+/*begin::bus a l'approche*/
+.bus_approche_animation, #bus_approche_annonce, #incident {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 130px);
+  text-align: center;
+}
+.bus_approche_animation h2, #bus_approche_annonce h2, #incident h2 {
+  animation: clignoter 1s infinite;
+  text-transform: uppercase;
+}
+.bus_approche_animation .gif_animation, #bus_approche_annonce .gif_animation, #incident .gif_animation {
+  height: 350px;
+}
+.bus_approche_animation:not(.diapo-active), #bus_approche_annonce:not(.diapo-active), #incident:not(.diapo-active) {
+  display: none;
+}
+
+#bus_approche_annonce .ligne_icon, #incident .ligne_icon {
+  height: 100px;
+}
+#bus_approche_annonce h2, #incident h2 {
+  font-size: 68px;
+  font-weight: bold;
+  margin: 20px;
+}
+#bus_approche_annonce p, #incident p {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.bus_approche_animation .ligne_icon {
+  height: 65px;
+}
+.bus_approche_animation h2 {
+  font-size: 18px;
+}
+
+/*end::bus à l'approche*/
+/*begin::panel*/
+#panel {
+  height: calc(100vh - 130px);
+}
+#panel #arret_container {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#panel #lignes_horaires {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 45vh;
+}
+
+/*end::panel*/
+/*begin::incident*/
+#incident .panneau {
+  height: 150px;
+  margin-bottom: 24px;
+}
+
+/*end::incident*/
+/*begin::annonce*/
+.annonce {
+  height: calc(100vh - 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.annonce .panneau {
+  height: 20vh;
+}
+.annonce h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.annonce p {
+  font-size: 1.5rem;
+}
+
+/*end::annonce*/
+/*begin::section*/
+.section-container {
+  padding: 32px;
+}
+
+/*end::section*/
+/*begin::screens list*/
+.screens_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.screen {
+  position: relative;
+  text-align: center;
+  margin: 32px;
+}
+.screen img {
+  height: 100px;
+}
+.screen .station_code {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.screen .station_nom {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 0;
+}
+.screen .screen_page {
+  font-size: 12px;
+  font-weight: 500;
+}
+.screen .screen_ip {
+  font-size: 12px;
+}
+
+/*end::screens list*/
+/*begin::animation*/
+@keyframes clignoter {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+/*end::animation*/
+aside {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 8px 0;
+  box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #E20613;
+}
+
+/*# sourceMappingURL=style.css.map */

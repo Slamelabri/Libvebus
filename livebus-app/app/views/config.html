@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCL</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+<header>
+    <div class="logotype">
+        <div>
+            <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+        </div>
+    </div>
+    <div class="date_heure">
+        <p id="date">Mardi 14/03/2023</p>
+        <p id="heure">12:12</p>
+    </div>
+</header>
+<main>
+    <section class="section-container">
+        <h2>Configurer l'écran</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <div>
+                    <label for="code_station_config" class="form-label">Code de la station</label>
+                    <div class="form-control">
+                        <input type="text" name="code_station_config" id="code_station_config" placeholder="Code station">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button data-action="save_config">Envoyer</button>
+            </div>
+
+            <div>
+                <p id="nom_station_config">Nom de la station : Non renseigné</p>
+            </div>
+        </div>
+        <div class="space-4"></div>
+        <div>
+            <a href="/" class="btn-red">Panneau</a>
+        </div>
+    </section>
+</main>
+
+<footer></footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+<script src="/src/js/admin.js"></script>
+</body>
+</html>

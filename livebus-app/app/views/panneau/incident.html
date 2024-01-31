@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TCL</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+<header>
+  <div class="logotype">
+    <div>
+      <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+    </div>
+  </div>
+  <div class="date_heure">
+    <p id="date">Mardi 14/03/2023</p>
+    <p id="heure">12:12</p>
+  </div>
+</header>
+<main>
+  <section id="incident" class="diapo-active">
+    <div>
+      <img src="/public/media/icone/panneaux/warning.png" alt="danger" class="panneau">
+    </div>
+    <div>
+      <img src="/public/media/lignes/metro/B.svg" class="ligne_icon" id="incident_ligne" alt="ligne de metro B">
+    </div>
+    <div>
+      <h2 id="incident_title">Incident en cours</h2>
+      <p id="incident_message">Les arrêts de charpennes a part-dieu ne sont plus deservit - reprise du traffic estimee à 11h00</p>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+<script>
+  const incidentClass = new incident();
+  incidentClass.affich();
+  // setTimeout(()=>{
+  //   window.location.href='/';
+  // },20000);
+</script>
+</body>
+</html>

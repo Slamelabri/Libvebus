@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TCL</title>
+</head>
+<link rel="stylesheet" href="/src/css/style.css">
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logotype{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  img{
+    height: 15vh;
+    text-align: center;
+  }
+  h1,h2{
+    color: white;
+    margin: 0;
+    text-align: center;
+  }
+  h1{
+    font-size: 30vh;
+    font-weight: 200;
+  }
+  h2{
+    font-size: 10vh;
+    font-weight: 100;
+  }
+</style>
+<body>
+
+  <div>
+    <div class="logotype">
+      <img src="/public/media/logo/tcl-sytral-white.svg" alt="logo tcl sytral">
+    </div>
+    <div class="date_heure">
+      <h1 id="heure">10:01</h1>
+      <h2 id="date">19/03/2023</h2>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/src/js/script.js"></script>
+
+</body>
+</html>

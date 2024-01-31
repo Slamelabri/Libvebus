@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ce bus ne prend pas de voyageurs - TCL</title>
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+<header>
+  <div class="logotype">
+    <div>
+      <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+    </div>
+  </div>
+  <div class="date_heure">
+    <p id="date">Mardi 14/03/2023</p>
+    <p id="heure">12:12</p>
+  </div>
+</header>
+<main>
+  <section class="annonce">
+    <div>
+      <img src="/public/media/icone/panneaux/bus-barred.png" alt="pas de voyageurs" class="panneau">
+    </div>
+    <div>
+      <h2>Ce bus ne prend pas de voyageurs</h2>
+      <p>Merci de ne pas monter à bord du véhicule. Eloignez vous de la bordure du quai.</p>
+    </div>
+  </section>
+</main>
+
+<footer></footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/src/js/script.js"></script>
+<script>
+  socket.on('actualisescreen', function(message){window.location.reload();})
+
+  const annonceClass = new annonce();
+  annonceClass.no_passengers();
+
+  setTimeout(()=>{window.location.href='/'}, 60000);
+</script>
+</body>
+</html>

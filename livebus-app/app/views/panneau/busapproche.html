@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCL</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logotype">
+      <div>
+        <img src="/public/media/logo/tcl-sytral.svg" alt="logo tcl">
+      </div>
+    </div>
+    <div class="date_heure">
+      <p id="date">Mardi 14/03/2023</p>
+      <p id="heure">12:12</p>
+    </div>
+  </header>
+  <main>
+    <section id="bus_approche_annonce" class="diapo-active" data-diapo="0">
+      <div>
+        <img src="/public/media/lignes/bus/5.svg" class="ligne_icon" alt="ligne de bus 5">
+      </div>
+      <div>
+        <h2>Bus en approche</h2>
+        <p>FAITES SIGNE AU CONDUCTEUR</p>
+        <p>Eloigner vous de la bordure du quai</p>
+      </div>
+    </section>
+    <section id="bus_approche_signe" class="bus_approche_animation" data-diapo="1">
+      <div class="ligne_container">
+        <div>
+          <img src="/public/media/lignes/bus/5.svg" class="ligne_icon" alt="ligne de bus 5">
+        </div>
+        <div>
+          <h2>Bus en approche</h2>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="/public/media/gif/bus_approche/animpersosigne.gif" alt="faite signe au conducteur" class="gif_animation">
+        </div>
+        <div>
+          <h3>Faite signe au conducteur</h3>
+        </div>
+      </div>
+    </section>
+    <section id="bus_approche_signe" class="bus_approche_animation" data-diapo="2">
+      <div class="ligne_container">
+        <div>
+          <img src="/public/media/lignes/bus/5.svg" class="ligne_icon" alt="ligne de bus 5">
+        </div>
+        <div>
+          <h2>Bus en approche</h2>
+        </div>
+      </div>
+      <div>
+        <div>
+          <img src="/public/media/gif/bus_approche/bordurequai.gif" alt="eloignez vous de la bordure du quai" class="gif_animation">
+        </div>
+        <div>
+          <h3>Eloigner vous de la bordure du quai</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer></footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/src/js/script.js"></script>
+  <script>
+    bus_approch_anim();
+    var icone = getCookie("bus_approche_icone");
+    document.querySelectorAll(".ligne_icon").forEach((icone_affich)=>{icone_affich.src=icone;});
+    setTimeout(()=>{window.location.href='/';},40000);
+  </script>
+</body>
+</html>
